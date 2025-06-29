@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Cover Letter Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .prose {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Dynamic Cover Letter Generator</h1>
+        <p class="text-gray-600 mb-8 text-center">Fill in the fields below to generate a powerful, customized cover letter.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Your Information Column -->
+            <div class="bg-gray-50 p-6 rounded-lg flex flex-col">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Your Information</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="fullName" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value="Sudipta Priyam Kakoty">
+                    </div>
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                        <input type="text" id="address" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value="Gießeireistraße, Siegen, Germany 57072">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value="sudiptapriyam55@gmail.com">
+                    </div>
+                    <div>
+                        <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn</label>
+                        <input type="text" id="linkedin" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value="linkedin.com/in/sudiptapriyamkakoty">
+                    </div>
+                    <div>
+                        <label for="github" class="block text-sm font-medium text-gray-700">GitHub</label>
+                        <input type="text" id="github" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" value="github.com/Sudecon5">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customization Column -->
+            <div class="bg-gray-50 p-6 rounded-lg flex flex-col">
+                <h2 class="text-xl font-semibold text-gray-700 mb-4">Job & Customization</h2>
+                 <div class="space-y-4">
+                    <div>
+                        <label for="companyName" class="block text-sm font-medium text-gray-700">Company Name</label>
+                        <input type="text" id="companyName" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Allianz">
+                    </div>
+                    <div>
+                        <label for="jobTitle" class="block text-sm font-medium text-gray-700">Job Title</label>
+                        <input type="text" id="jobTitle" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Data Scientist">
+                    </div>
+                    <div>
+                        <label for="hiringManager" class="block text-sm font-medium text-gray-700">Hiring Manager Name (optional)</label>
+                        <input type="text" id="hiringManager" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., Mr. Smith">
+                    </div>
+                    <div>
+                        <label for="relevantProject" class="block text-sm font-medium text-gray-700">Most Relevant Project Summary</label>
+                        <textarea id="relevantProject" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., My project on house price prediction involved designing a regression model..."></textarea>
+                    </div>
+                     <div>
+                        <label for="keyAchievement" class="block text-sm font-medium text-gray-700">Key Quantifiable Achievement</label>
+                        <input type="text" id="keyAchievement" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., achieved over 90% model accuracy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <button id="generateButton" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                Generate & Update Cover Letter
+            </button>
+        </div>
+
+        <div class="mt-8 bg-white p-6 sm:p-8 rounded-lg shadow-inner border border-gray-200">
+             <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">Your Generated Cover Letter</h2>
+                <button id="copyButton" class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 transition-colors">
+                    Copy Formatted Text
+                </button>
+            </div>
+            <div id="coverLetterOutput" class="prose prose-lg text-gray-700">
+                <p>Your generated cover letter will appear here.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const generateButton = document.getElementById('generateButton');
+            const copyButton = document.getElementById('copyButton');
+
+            const updateCoverLetter = () => {
+                // Get user info
+                const fullName = document.getElementById('fullName').value || "[Your Name]";
+                const address = document.getElementById('address').value || "[Your Address]";
+                const email = document.getElementById('email').value || "[Your Email]";
+                const linkedin = document.getElementById('linkedin').value || "[Your LinkedIn]";
+                const github = document.getElementById('github').value || "[Your GitHub]";
+
+                // Get company & role info
+                const companyName = document.getElementById('companyName').value || "[Company Name]";
+                const jobTitle = document.getElementById('jobTitle').value || "[Job Title]";
+                const hiringManager = document.getElementById('hiringManager').value;
+                
+                // Get customization info
+                const relevantProject = document.getElementById('relevantProject').value;
+                const keyAchievement = document.getElementById('keyAchievement').value;
+
+                const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                const salutation = hiringManager ? `Dear ${hiringManager},` : "Dear Hiring Manager,";
+
+                // --- CONTENT LOGIC ---
+                const defaultProjectParagraph = `My experience in building <strong>end-to-end data solutions</strong> is best illustrated by my work on predictive web applications for medical insurance costs and real estate pricing. This involved the full project lifecycle: from data cleaning and feature engineering to model training, hyperparameter tuning, and <strong>deployment into an interactive web service using Flask and Render</strong>.`;
+                const projectParagraph = relevantProject || defaultProjectParagraph;
+                
+                let achievementSentence = '';
+                if (keyAchievement) {
+                    achievementSentence = `A key outcome of this work was that I <strong>${keyAchievement}</strong>, showcasing my ability to deliver quantifiable success.`;
+                } else {
+                    achievementSentence = `This work demonstrates my ability to not only build robust systems but also to <strong>deliver tangible results</strong>.`;
+                }
+
+                const coverLetterHTML = `
+                    <div class="text-left">
+                        <p class="font-bold text-xl mb-2">${fullName}</p>
+                        <p>${address}</p>
+                        <p>${email}</p>
+                        <p><a href="https://${linkedin}" target="_blank" class="text-indigo-600 hover:underline">${linkedin}</a></p>
+                        <p><a href="https://${github}" target="_blank" class="text-indigo-600 hover:underline">${github}</a></p>
+                        <br>
+                        <p>${today}</p>
+                        <br>
+                        <p class="font-bold">${companyName}</p>
+                        <p>Human Resources Department</p>
+                        <br>
+                        <p class="font-bold">${salutation}</p>
+                        <br>
+                        <p>As a Data Scientist and Economist currently completing my Master's in Economic Policy, I am writing to express my enthusiastic interest in the ${jobTitle} position at ${companyName}. My proven ability to develop high-accuracy predictive models and translate complex data into actionable business strategy appears to be a direct match for the requirements of this role.</p>
+                        <br>
+                        <p>My academic and project work has allowed me to build a strong bridge between economic theory and practical data application. I have developed and deployed machine learning models that <strong>achieved over 87% accuracy</strong> and created interactive Tableau dashboards that <strong>led to actionable HR policy changes</strong>. My expertise lies in using a comprehensive technical toolkit—including Python, SQL, Scikit-learn, and Flask—to <strong>transform raw data into measurable business value</strong>.</p>
+                        <br>
+                        <p>${projectParagraph} ${achievementSentence}</p>
+                        <br>
+                        <p>I am particularly drawn to the opportunity to contribute my skills to ${companyName}. I am confident that my data-driven approach and experience in building predictive systems can support your team's objectives and drive impactful results. I have attached my resume for your review and welcome the chance to discuss my qualifications further.</p>
+                        <br>
+                        <p>Thank you for your time and consideration.</p>
+                        <br>
+                        <p>Sincerely,</p>
+                        <p>${fullName}</p>
+                    </div>
+                `;
+
+                document.getElementById('coverLetterOutput').innerHTML = coverLetterHTML;
+            };
+            
+            generateButton.addEventListener('click', updateCoverLetter);
+            updateCoverLetter(); // Initial generation
+
+            // Updated copy function to preserve HTML formatting
+            copyButton.addEventListener('click', () => {
+                const letterElement = document.getElementById('coverLetterOutput');
+                const selection = window.getSelection();
+                const range = document.createRange();
+                
+                // Select the content of the element
+                range.selectNodeContents(letterElement);
+                selection.removeAllRanges(); // Clear previous selection
+                selection.addRange(range); // Add new selection
+
+                try {
+                    // This command copies the rich text (HTML) of the selection
+                    document.execCommand('copy');
+                    copyButton.innerText = 'Copied!';
+                    setTimeout(() => {
+                        copyButton.innerText = 'Copy Formatted Text';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Failed to copy formatted text: ', err);
+                    copyButton.innerText = 'Error!';
+                } finally {
+                    // Deselect the text after copying
+                    selection.removeAllRanges();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
