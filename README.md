@@ -52,3 +52,5 @@ To run this project locally:
 1. Clone the repository:
    ```bash
    git clone https://https://github.com/Sudecon5/Cover_Letter_Generator/.git
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
