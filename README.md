@@ -1,9 +1,8 @@
-# Cover_Letter_Generator
 # Dynamic Cover Letter Generator
 
 A responsive web application that helps job seekers create customized, professional cover letters tailored to specific job applications.
 
-![Cover Letter Generator Screenshot]() <!-- Add a screenshot if available -->
+![Cover Letter Generator Screenshot](./Screenshot%202025-06-30%20at%2011.57.16.png)
 
 ## Features
 
@@ -44,7 +43,7 @@ A responsive web application that helps job seekers create customized, professio
 ## Deployment
 
 The application is deployed on GitHub Pages and can be accessed at:  
-[Live Demo Link](https://https://github.com/Sudecon5/Cover_Letter_Generator/) <!-- Replace with your actual link -->
+[Live Demo Link]( https://sudecon5.github.io/Cover_Letter_Generator/) 
 
 ## Installation (Local Development)
 
@@ -52,4 +51,4 @@ To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://https://github.com/Sudecon5/Cover_Letter_Generator/.git
